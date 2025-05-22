@@ -1,6 +1,10 @@
 package com.meuprojeto.controledeinvestimentos.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,14 +15,22 @@ public class Operacao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "Tipo é obrigatório")
     private String tipo; // Compra ou Venda
 
+    @NotNull(message = "Data é obrigatória")
     private LocalDate data;
 
+    @NotNull(message = "Quantidade é obrigatória")
+    @Positive(message = "Quantidade deve ser maior que zero")
     private Integer quantidade;
 
+    @NotNull(message = "Preço unitário é obrigatório")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Preço deve ser maior que zero")
     private BigDecimal precoUnitario;
 
+    @NotNull(message = "Corretagem é obrigatória")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Corretagem não pode ser negativa")
     private BigDecimal corretagem;
 
     @ManyToOne
