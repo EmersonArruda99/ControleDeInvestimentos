@@ -22,7 +22,7 @@ public class OperacaoMapper {
             dto.setAtivoId(ativo.getId());
             dto.setTicker(ativo.getTicker());
             dto.setNome(ativo.getNome());
-            dto.setTipoAtivo(ativo.getTipo());
+            dto.setTipoAtivo(ativo.getTipo().name());
             dto.setSetor(ativo.getSetor());
         }
 

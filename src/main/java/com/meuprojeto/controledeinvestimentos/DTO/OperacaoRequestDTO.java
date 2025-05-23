@@ -1,5 +1,6 @@
 package com.meuprojeto.controledeinvestimentos.DTO;
 
+import com.meuprojeto.controledeinvestimentos.model.enums.TipoOperacao;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,8 +12,8 @@ import java.time.LocalDate;
 
 @Data
 public class OperacaoRequestDTO {
-    @NotBlank
-    private String tipo;
+    @NotNull
+    private TipoOperacao tipo;
 
     @NotNull
     private LocalDate data;

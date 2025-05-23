@@ -54,7 +54,7 @@ public class OperacaoController {
         response.setAtivoId(ativo.getId());
         response.setTicker(ativo.getTicker());
         response.setNome(ativo.getNome());
-        response.setTipoAtivo(ativo.getTipo());
+        response.setTipoAtivo(ativo.getTipo().name());
         response.setSetor(ativo.getSetor());
 
         return OperacaoMapper.toDTO(operacao);
